@@ -1,15 +1,18 @@
 article.content {
-  .table {
+  table {
     width: 100%;
     border-spacing: 0;
 
     thead {
       vertical-align: bottom;
-      background-color: var(--site-raised-bgColor);
+      background-color: var(--site-raised-bgColor, var(--site-inset-bgColor));
 
       th {
         border-top: 1px solid var(--site-outline-variant);
-        text-align: start;
+
+        &:not([align]) {
+          text-align: start;
+        }
       }
     }
 
@@ -18,7 +21,7 @@ article.content {
         vertical-align: top;
 
         &:nth-of-type(odd) {
-          background-color: rgb(var(--site-interaction-base-values) / 3%)
+          background-color: rgb(var(--site-interaction-base-values, 0 0 0) / 3%);
         }
       }
     }
@@ -47,7 +50,6 @@ article.content {
     position: relative;
     font-family: var(--site-ui-fontFamily);
     margin-block-end: 1.5rem;
-    scroll-margin-top: calc(var(--site-header-height) + var(--site-subheader-height) + 1.25rem);
 
     &.wrap {
       display: flex;
@@ -101,19 +103,8 @@ article.content {
   h4,
   h5,
   h6 {
-
-    // Push # link targets clear of page header.
-    &[id] {
-      scroll-margin-top: calc(var(--site-header-height) + var(--site-subheader-height) + 1.25rem);
-    }
-
     // Let the wrapper set the bottom margin.
     margin-bottom: 0;
-  }
-
-  // Push # link targets clear of page header.
-  a[id] {
-    scroll-margin-top: calc(var(--site-header-height) + var(--site-subheader-height) + 1.25rem);
   }
 
   .header-wrapper {

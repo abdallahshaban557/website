@@ -42,9 +42,9 @@ class ShareButton extends StatelessComponent {
                       to: false,
                     );
                   },
-                  [
-                    const MaterialIcon('content_copy'),
-                    const .text('Copy link'),
+                  const [
+                    MaterialIcon('content_copy'),
+                    .text('Copy link'),
                   ],
                 );
               },
@@ -58,8 +58,8 @@ class ShareButton extends StatelessComponent {
               href:
                   'https://twitter.com/intent/tweet?text=${Uri.encodeComponent(title)}&url=${Uri.encodeComponent(url)}',
               target: Target.blank,
-              [
-                const svg([
+              const [
+                svg([
                   Component.element(
                     tag: 'use',
                     attributes: {
@@ -67,7 +67,7 @@ class ShareButton extends StatelessComponent {
                     },
                   ),
                 ]),
-                const .text('Share on X'),
+                .text('Share on X'),
               ],
             ),
           ]),
@@ -76,17 +76,16 @@ class ShareButton extends StatelessComponent {
               href:
                   'https://bsky.app/intent/compose?text=${Uri.encodeComponent("$title $url")}',
               target: Target.blank,
-              [
-                const svg([
+              const [
+                svg([
                   Component.element(
                     tag: 'use',
                     attributes: {
-                      'href':
-                          '/packages/site_shared/assets/social/bluesky.svg#bluesky',
+                      'href': '/packages/site_shared/assets/social/bluesky.svg#bluesky',
                     },
                   ),
                 ]),
-                const .text('Share on Bluesky'),
+                .text('Share on Bluesky'),
               ],
             ),
           ]),
@@ -95,17 +94,16 @@ class ShareButton extends StatelessComponent {
               href:
                   'https://www.linkedin.com/sharing/share-offsite/?url=${Uri.encodeComponent(url)}',
               target: Target.blank,
-              [
-                const svg([
+              const [
+                svg([
                   Component.element(
                     tag: 'use',
                     attributes: {
-                      'href':
-                          '/packages/site_shared/assets/social/linkedin.svg#linkedin',
+                      'href': '/packages/site_shared/assets/social/linkedin.svg#linkedin',
                     },
                   ),
                 ]),
-                const .text('Share on LinkedIn'),
+                .text('Share on LinkedIn'),
               ],
             ),
           ]),

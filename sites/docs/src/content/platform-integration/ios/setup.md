@@ -44,7 +44,7 @@ an iOS physical device or on the iOS Simulator.
     ```
 
     If you downloaded Xcode elsewhere or need to use a different version,
-    replace `/Applications/Xcode.app` with the path to there instead.
+    replace `/Applications/Xcode.app` with the path to your Xcode installation.
 
  1. <h3>Agree to the Xcode licenses</h3>
 
@@ -103,7 +103,15 @@ physical device.
 <Tabs key="ios-simulator-or-physical-device">
 <Tab name="Simulator">
 
-Start the iOS Simulator with the following command:
+To start the simulator, run the command for your Xcode version.
+
+If you're using Xcode 27 or later, start the Device Hub app:
+
+```console
+$ open -a DeviceHub
+```
+
+If you're using Xcode 26 or earlier, start the Simulator app:
 
 ```console
 $ open -a Simulator
@@ -133,7 +141,7 @@ Set up each iOS device on which you want to test.
 
        ![Trust Mac](/assets/images/docs/setup/trust-computer.png)
 
- 1. <h3>Configure your physical iOS device</h3>
+ 1. <h3>Enable Developer Mode</h3>
 
     Apple requires enabling **[Developer Mode][]**
     on the device to protect against malicious software.
@@ -176,7 +184,7 @@ Set up each iOS device on which you want to test.
 
     :::note Apple Developer program
     When you want to _deploy_ your app to the App Store,
-    you'll need to upgrade your personal Apple Developer account to
+    you must upgrade your personal Apple Developer account to
     a professional account.
     :::
 

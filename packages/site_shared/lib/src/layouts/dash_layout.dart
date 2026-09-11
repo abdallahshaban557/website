@@ -11,6 +11,7 @@ import 'package:jaspr_content/jaspr_content.dart';
 import '../../components/common/client/cookie_notice.dart';
 import '../../components/layout/banner.dart';
 import '../../util.dart';
+import '../utils/cache_busted_build_asset_url.dart';
 
 /// The base Jaspr Content layout for all sites.
 abstract class DashLayout implements PageLayout {
@@ -52,7 +53,8 @@ abstract class DashLayout implements PageLayout {
     'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0',
   ];
 
-  String get stylesHash;
+  /// The stylesheet URL for the site's built styles.
+  String get stylesUrl => '/assets/css/main.css';
 
   Iterable<Component> buildExtraHead(Page page) => const [];
 
@@ -149,7 +151,7 @@ abstract class DashLayout implements PageLayout {
       // Set site styles.
       link(
         rel: 'stylesheet',
-        href: '/assets/css/main.css?hash=$stylesHash',
+        href: cacheBustedBuildAssetUrl(stylesUrl),
       ),
 
       // Set site scripts.
@@ -163,8 +165,7 @@ abstract class DashLayout implements PageLayout {
       ...buildExtraHead(page),
 
       const script(
-        src:
-            'https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.8.2/lite-youtube.js',
+        src: 'https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.8.2/lite-youtube.js',
         attributes: {
           'type': 'module',
           'integrity': 'sha256-Jy0j0fUMJ2T3WxSEs2WjHLrS+3DlO7S9DItQtP55FII=',
